@@ -6,7 +6,7 @@ rm -f bin/OpenCL-Benchmark # prevent execution of old version if compiling fails
 
 case "$(uname -a)" in # automatically detect operating system and X11 support on Linux
 	 Darwin*) g++ src/*.cpp -o bin/OpenCL-Benchmark -std=c++17 -pthread -O -Wno-comment -I./src/OpenCL/include -framework OpenCL               ;; # macOS
-	*Android) g++ src/*.cpp -o bin/OpenCL-Benchmark -std=c++17 -pthread -O -Wno-comment -I./src/OpenCL/include -L/system/vendor/lib64 -lOpenCL ;; # Android
+	*Android) g++ src/*.cpp -o bin/OpenCL-Benchmark -std=c++17 -pthread -O -Wno-comment -I./src/OpenCL/include -lOpenCL ;; # Android
 	*       ) g++ src/*.cpp -o bin/OpenCL-Benchmark -std=c++17 -pthread -O -Wno-comment -I./src/OpenCL/include -L./src/OpenCL/lib -lOpenCL     ;; # Linux
 esac
 
